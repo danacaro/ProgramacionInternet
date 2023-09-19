@@ -25,7 +25,7 @@ export default class Inscripcion extends Component {
     }
     return (
         <View style={{
-            backgroundColor:"#1f2124",
+            backgroundColor:"#F5B486",
             width:370,
             height:732,
             marginLeft:10,
@@ -41,14 +41,14 @@ export default class Inscripcion extends Component {
                 fontSize: 50,
                 textAlign: "center",
                 marginTop: 10,
-                color: "#76ee94",
+                color: "#black",
               }}>Inscribirse</Text>
         <View>
         <TouchableOpacity style={{
             //borderWidth:2,
             width:260,
             height:50,
-            backgroundColor:"#515151",
+            backgroundColor:"#717171",
             borderRadius:40,
             marginLeft:50,
             marginTop:30,
@@ -118,7 +118,7 @@ export default class Inscripcion extends Component {
             height:300,
             marginLeft:40,
             marginTop:220,
-            backgroundColor:"#515151",
+            backgroundColor:"#717171",
             borderRadius:10,
         }}>
             <Text style={{
@@ -174,7 +174,7 @@ export default class Inscripcion extends Component {
                     marginLeft:80,
                     borderRadius:40,
                     fontSize:20,
-                    backgroundColor:"#76ee94",
+                    backgroundColor:"#E58835",
                     marginTop:20,
                 }} onPress={cierra1}>
                 <Text style={{
@@ -199,7 +199,7 @@ export default class Inscripcion extends Component {
             height:220,
             marginLeft:40,
             marginTop:220,
-            backgroundColor:"#515151",
+            backgroundColor:"#717171",
             borderRadius:10,
         }}>
             <Text style={{
@@ -240,7 +240,7 @@ export default class Inscripcion extends Component {
                     marginLeft:80,
                     borderRadius:40,
                     fontSize:20,
-                    backgroundColor:"#76ee94",
+                    backgroundColor:"#E58835",
                     marginTop:20,
                 }} onPress={cierra2}>
                 <Text style={{
