@@ -165,8 +165,9 @@ txtfacebook:{
     },
 
     imagen1:{
-        width:400,
-        height:520,
+         marginLeft:60,
+        width:300,
+        height:320,
     },
 
     centeredView: {
