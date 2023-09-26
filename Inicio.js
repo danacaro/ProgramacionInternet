@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Modal, TextInput, Pressable } from 'react-native';
 // la importacion de lo que usemos
 
 export default class Inicio extends Component {
@@ -7,17 +7,23 @@ export default class Inicio extends Component {
     super(props);
     this.state = {
         // declaracion de variables
-    };
+        modalVisible:false
+    };  setModalVisible:false
   }
 
   render() {
     //las acciones de los objetos
     const clickemail=()=>{
       console.log("LE DISTE CLICK AL BOTON DE EMAIL");
+      this.setState({ modalVisible:true })
     }
 
     const clickfacebook=()=>{
       console.log("LE DISTE CLICK AL BOTON DE FACEBOOK");
+    }
+
+    const cerrarModal=()=>{
+        this.setState({ modalVisible:false })
     }
 
     const ir_a_insc = () =>{
@@ -53,13 +59,43 @@ export default class Inicio extends Component {
         </TouchableOpacity>
 
         </View>
+        
+        <View style={styles.centeredView}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={this.state.modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <TextInput></TextInput>
+            <TouchableOpacity onPress={cerrarModal}>
+              <Text>Continuar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
       </View>
+        
+      </View>
+
+      
     );
   }
 }
 
 //Seleccion de styles
 const styles = StyleSheet.create({
+
+modalemail:{
+  backgroundColor:"#440044",
+  width:500
+},
+
 txtemail:{
   fontSize:20,
   textAlign:'center',
@@ -131,6 +167,48 @@ txtfacebook:{
     imagen1:{
         width:400,
         height:520,
-    }
+    },
+
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+    },
+    modalView: {
+      margin: 20,
+      backgroundColor: 'white',
+      borderRadius: 20,
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    button: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
+    },
+    buttonOpen: {
+      backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+      backgroundColor: '#2196F3',
+    },
+    textStyle: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: 'center',
+    },
 
 })

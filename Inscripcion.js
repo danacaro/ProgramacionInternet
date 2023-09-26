@@ -5,7 +5,11 @@ export default class Inscripcion extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        
         modalVentana:true,
+        nombre:"",
+        correo:"",
+        password:"",
     };
     
   }
@@ -16,12 +20,30 @@ export default class Inscripcion extends Component {
     }
     const cierra1 = () => {
         this.setState({modalCorreo:false});
+        console.log("se dio clic");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Typical action to be performed when the document is ready:
+            console.log("respuesta = "+xhttp.responseText);
+            }else{
+                if(this.readyState != 4)
+                    
+                    console.log("Error al conectar readyState, readyState="+this.readyState);
+                if(this.status != 200)
+                    console.log("Error al conectar status, status="+this.status);
+            }
+        };
+        console.log("https://programacion-para-internet-i5909.000webhostapp.com/2023B/datos.php?nombre="+this.state.nombre+"&correo="+this.state.correo+"&password="+this.state.password)
+        xhttp.open("GET", "https://programacion-para-internet-i5909.000webhostapp.com/2023B/datos.php?nombre="+this.state.nombre+"&correo="+this.state.correo+"&password="+this.state.password, true);
+        xhttp.send();
     }
     const facebook = () => {
-        this.setState({modalFacebook:true});
+        this.setState({modalFacebook:false});
     }
     const cierra2 = ()=> {
         this.setState({modalFacebook:false})
+        
     }
     return (
         <View style={{
@@ -117,7 +139,7 @@ export default class Inscripcion extends Component {
             width:300,
             height:300,
             marginLeft:40,
-            marginTop:220,
+            marginTop:500,
             backgroundColor:"#515151",
             borderRadius:10,
         }}>
@@ -128,7 +150,8 @@ export default class Inscripcion extends Component {
                 color:"white",
 
             }}>*Name</Text>
-            <TextInput style={{
+            <TextInput onChangeText={nombre => this.setState({nombre})}
+            style={{
                 borderWidth:1,
                 borderRadius:5,
                 width:240,
@@ -144,7 +167,8 @@ export default class Inscripcion extends Component {
                 color:"white",
 
             }}>*Email</Text>
-            <TextInput style={{
+            <TextInput onChangeText={correo => this.setState({correo})}
+             style={{
                 borderWidth:1,
                 borderRadius:5,
                 width:240,
@@ -158,7 +182,8 @@ export default class Inscripcion extends Component {
                 color:"white",
 
             }}>*Password</Text>
-            <TextInput style={{
+            <TextInput onChangeText={password => this.setState({password})}
+            style={{
                 borderWidth:1,
                 borderRadius:5,
                 width:240,
